@@ -1,16 +1,17 @@
 package com.brillio.profile;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "skills")
 public class SkillDTO {
 
     @Id
-    String id;
+    String skillid;
+
+    @Column
+    String profileid;
 
     @Column
     String skillname;
@@ -18,12 +19,20 @@ public class SkillDTO {
     @Column
     String level;
 
-    public String getId() {
-        return id;
+    public String getSkillid() {
+        return skillid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setSkillid(String skillid) {
+        this.skillid = skillid;
+    }
+
+    public String getProfileid() {
+        return profileid;
+    }
+
+    public void setProfileid(String profileid) {
+        this.profileid = profileid;
     }
 
     public String getSkillname() {
@@ -41,4 +50,16 @@ public class SkillDTO {
     public void setLevel(String level) {
         this.level = level;
     }
+
+//    @ManyToOne
+//    @JoinColumn(name = "id")
+//    List<ProfileDTO> profileList;
+//
+//    public List<ProfileDTO> getProfileList() {
+//        return profileList;
+//    }
+//
+//    public void setProfileList(List<ProfileDTO> profileList) {
+//        this.profileList = profileList;
+//    }
 }

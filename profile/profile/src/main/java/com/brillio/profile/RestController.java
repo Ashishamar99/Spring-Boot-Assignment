@@ -13,6 +13,9 @@ public class RestController {
     @Autowired
     ProfileDAO profileDAO;
 
+    @Autowired
+    SkillDAO skillDAO;
+
     @GetMapping("/")
     public String firstMethod(){
         return "Welcome to Profile Application";
@@ -21,5 +24,10 @@ public class RestController {
     @GetMapping("/getProfiles")
     public List<ProfileDTO> getAllProfiles(){
         return profileDAO.findAll();
+    }
+
+    @GetMapping("/getSkills")
+    public List<SkillDTO> getAllSkills(){
+        return skillDAO.findAll();
     }
 }

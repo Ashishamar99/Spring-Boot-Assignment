@@ -1,9 +1,7 @@
 package com.brillio.profile;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "profile")
@@ -50,5 +48,17 @@ public class ProfileDTO {
 
     public void setPass(String pass) {
         this.pass = pass;
+    }
+
+    @OneToMany
+    @JoinColumn(name = "id")
+    List<SkillDTO> skillList;
+
+    public List<SkillDTO> getSkillList() {
+        return skillList;
+    }
+
+    public void setSkillList(List<SkillDTO> skillList) {
+        this.skillList = skillList;
     }
 }
